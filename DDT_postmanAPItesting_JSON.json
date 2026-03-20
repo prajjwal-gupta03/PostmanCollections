@@ -1,0 +1,14 @@
+[
+  {
+    "name": "John Doe",
+    "email": "John_Doe@hotm.com",
+    "gender": "male",
+    "status": "active"
+  },
+  {
+    "name": "Kobe Bryant",
+    "email": "Bryant@godaddy.com",
+    "gender": "male",
+    "status": "inactive"
+  }
+]

@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "9a8fd3f2-7a03-4e84-9343-7f9711a14b04",
+		"name": "Session_14_NEWMANtool_DataDrivenTesting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28294748"
+	},
+	"item": [
+		{
+			"name": "DDT_POST_Request_01",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Write a script/function to check status code is \"201 Created\" once POST request is sent to API. \r",
+							"\r",
+							"// pm.test(\"Check Status Code\",function(){\r",
+							"\r",
+							"//     pm.response.to.have.status(201);\r",
+							"// }\r",
+							"// )"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4dc8965576905f56575fdb44e8103d96ceb69c8eedda9cf8c1239b7c56321234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"status\": \"{{status}}\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

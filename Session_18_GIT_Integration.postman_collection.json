@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "a0880885-4e5f-4e97-8540-0813ca4dd8b9",
+		"name": "Session_18_GIT_Integration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28294748"
+	},
+	"item": [
+		{
+			"name": "GETRequest_01",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"GET request Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4dc8965576905f56575fdb44e8103d96ceb69c8eedda9cf8c1239b7c56321234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_global}}/public/v2/users",
+					"host": [
+						"{{url_global}}"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POSTRequest_01",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonD = pm.response.json()\r",
+							"pm.globals.set(\"uid\", jsonD.id)\r",
+							"\r",
+							"//pm.test(\"Check status code 200\", function()\r",
+							"//{\r",
+							"//    pm.response.to.have.status(200)\r",
+							"//}\r",
+							"//);\r",
+							"\r",
+							"pm.test(\"POST request status code 201\", function()\r",
+							"{\r",
+							"    pm.response.to.have.status(201)\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4dc8965576905f56575fdb44e8103d96ceb69c8eedda9cf8c1239b7c56321234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"gender\": \"male\",\r\n    \"status\": \"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_global}}/public/v2/users",
+					"host": [
+						"{{url_global}}"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUTRequest_01",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Put Request Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4dc8965576905f56575fdb44e8103d96ceb69c8eedda9cf8c1239b7c56321234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"gender\": \"male\",\r\n    \"status\": \"inactive\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_global}}/public/v2/users/{{uid}}",
+					"host": [
+						"{{url_global}}"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{uid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETERequest_01",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4dc8965576905f56575fdb44e8103d96ceb69c8eedda9cf8c1239b7c56321234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url_global}}/public/v2/users/{{uid}}",
+					"host": [
+						"{{url_global}}"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{uid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
